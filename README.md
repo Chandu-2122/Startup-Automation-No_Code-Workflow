@@ -1,4 +1,4 @@
-# Startup-Automation-Workflow-n8n-Airtable-
+# Startup-Automation-Workflow-[No Code]-
 
 ## Objective
 Automate first-level startup operations (lead management, branding requests, and customer inquiries) to save time and ensure every incoming request gets routed correctly.
