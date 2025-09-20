@@ -1,0 +1,2294 @@
+{
+  "name": "Startup Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Contact Us",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name",
+              "placeholder": "Your Full Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "placeholder": "Your Email ID"
+            },
+            {
+              "fieldLabel": "Company",
+              "placeholder": "Your Company Name",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Need",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Website Design"
+                  },
+                  {
+                    "option": "Branding & Logos"
+                  },
+                  {
+                    "option": "Landing Page for Product"
+                  },
+                  {
+                    "option": "Email Automation Setup"
+                  },
+                  {
+                    "option": "Social Media Kit"
+                  },
+                  {
+                    "option": "Personal Branding Strategy"
+                  },
+                  {
+                    "option": "AI Chatbot for Website"
+                  },
+                  {
+                    "option": "Workshop/Training Request"
+                  },
+                  {
+                    "option": "General Inquiry"
+                  }
+                ]
+              },
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Status",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "New"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.3,
+      "position": [
+        -32,
+        -128
+      ],
+      "id": "1bf28f3b-bd9e-4454-937e-21b8dae8fe62",
+      "name": "On form submission",
+      "webhookId": "74774158-8702-4de9-9586-0126439f8d69"
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Follow-up Sent": false,
+            "Team Follow-up Sent": false,
+            "Name": "={{ $json[\"Full Name\"] }}",
+            "Email": "={{ $json.Email }}",
+            "Company": "={{ $json.Company }}",
+            "Need": "={{ $json.Need }}",
+            "Status": "={{ $json.Status }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        160,
+        -128
+      ],
+      "id": "5f982147-6bfc-4176-98de-aac2a3c88e2e",
+      "name": "Create a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.fields.Email }}",
+        "subject": "Thanks for reaching out to SparkForm 🚀",
+        "emailType": "text",
+        "message": "=Hi {{ $json.fields.Name }},\n\nThank you for reaching out to SparkForm. We received your inquiry\nabout \"{{ $json.fields.Need }}\" and are excited to help you.\n\nOur team will get back to you within 24 hours. Meanwhile, feel free to\nreply to this mail for more clarity.\n\nBest,\nSparkForm Team",
+        "options": {
+          "appendAttribution": "={{ false }}"
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        384,
+        -288
+      ],
+      "id": "9fdabf52-3a66-436d-869a-6c80c65e46b7",
+      "name": "Mail to Client",
+      "webhookId": "4bed4bba-ef93-4a2a-8d52-9769ca443887",
+      "alwaysOutputData": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "A1I7xe2dvZOoyl0I",
+          "name": "Gmail account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.fields.Email }}",
+        "subject": "=🛎️Lead:Status = {{ $json.fields.Status }}.\n{{ $json.fields.Name }} from {{ $json.fields.Company }}. ",
+        "emailType": "text",
+        "message": "=Hi Lead Team,\n\nThere is a Lead update. Please look into the following details of it, asap.\n\nName:{{ $json.fields.Name }}\nEmail:{{ $json.fields.Email }}\nCompany:{{ $json.fields.Company }}\nStatus:{{ $json.fields.Status }}\nNeed:{{ $json.fields.Need }}\nSubmission Date:{{ $json.fields['Submission Date'] }}\nTeam Response:{{ $json.fields['Team Response'] }}\n\nBest,\nAutomation Team",
+        "options": {
+          "appendAttribution": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        384,
+        48
+      ],
+      "id": "4840587a-dc3e-4b80-920c-1e52c5fb6cb2",
+      "name": "Mail to Team",
+      "webhookId": "4bed4bba-ef93-4a2a-8d52-9769ca443887",
+      "alwaysOutputData": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "A1I7xe2dvZOoyl0I",
+          "name": "Gmail account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Team Follow-up Sent": true,
+            "Team Response": "Pending",
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Escalation Count": 0
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        576,
+        144
+      ],
+      "id": "115de0cd-0e3b-4c70-9376-96b735320230",
+      "name": "TeamSuccessUpdates",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Client Follow-up Sent": true,
+            "id": "={{ $('Create a record').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        592,
+        -400
+      ],
+      "id": "15abc32b-5c8f-4ae7-86e4-abcd5aa7947a",
+      "name": "ClientSuccessUpdates",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Notes": "Error Sending Mail/Mails",
+            "id": "={{ $('Create a record').item.json.id }}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        592,
+        -128
+      ],
+      "id": "4ec54e74-6b60-40f1-b6e8-83a42a29fa12",
+      "name": "MailErrorUpdates",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "id": "={{ $('Create a record').item.json.id }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        976,
+        -128
+      ],
+      "id": "b3e79494-5f3e-4b5a-8077-925ffdaf41b7",
+      "name": "Get a record",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Notes": "Completed"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1376,
+        -128
+      ],
+      "id": "5aec51c8-0e20-4d26-bf3e-4b12f1910b7f",
+      "name": "Completed Lead",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 12
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        816,
+        -128
+      ],
+      "id": "13be638f-2169-4301-aa9b-51df5b0be721",
+      "name": "Wait For 12 Hours",
+      "webhookId": "d8d2a16f-bba4-47b6-980e-00c539327b20"
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1696,
+        -352
+      ],
+      "id": "141ebd4f-c79f-4e01-8835-8f2c7c38ea51",
+      "name": "Wait For 12more Hours",
+      "webhookId": "d8d2a16f-bba4-47b6-980e-00c539327b20"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "base": {
+          "__rl": true,
+          "value": "appxQX4nrevBbcq0b",
+          "mode": "list",
+          "cachedResultName": "Lead CRM",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblJeWLNWD3Yn9YbW",
+          "mode": "list",
+          "cachedResultName": "Leads",
+          "cachedResultUrl": "https://airtable.com/appxQX4nrevBbcq0b/tblJeWLNWD3Yn9YbW"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "id": "={{ $('Create a record').item.json.id }}",
+            "Escalation Count": "={{ $json[\"Escalation Count\"] +1}}"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Need",
+              "displayName": "Need",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Website Design",
+                  "value": "Website Design"
+                },
+                {
+                  "name": "Branding & Logos",
+                  "value": "Branding & Logos"
+                },
+                {
+                  "name": "Landing Page for Product",
+                  "value": "Landing Page for Product"
+                },
+                {
+                  "name": "Email Automation Setup",
+                  "value": "Email Automation Setup"
+                },
+                {
+                  "name": "Social Media Kit",
+                  "value": "Social Media Kit"
+                },
+                {
+                  "name": "Personal Branding Strategy",
+                  "value": "Personal Branding Strategy"
+                },
+                {
+                  "name": "AI Chatbot for Website",
+                  "value": "AI Chatbot for Website"
+                },
+                {
+                  "name": "Workshop/Training Request",
+                  "value": "Workshop/Training Request"
+                },
+                {
+                  "name": "General Inquiry",
+                  "value": "General Inquiry"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "New",
+                  "value": "New"
+                },
+                {
+                  "name": "Contacted",
+                  "value": "Contacted"
+                },
+                {
+                  "name": "Closed",
+                  "value": "Closed"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Submission Date",
+              "displayName": "Submission Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up Sent",
+              "displayName": "Client Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Client Follow-up sent time",
+              "displayName": "Client Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up Sent",
+              "displayName": "Team Follow-up Sent",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "boolean",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Follow-up sent time",
+              "displayName": "Team Follow-up sent time",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": true
+            },
+            {
+              "id": "TeamResponse_due_time ",
+              "displayName": "TeamResponse_due_time ",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "dateTime",
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Team Response",
+              "displayName": "Team Response",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Pending",
+                  "value": "Pending"
+                },
+                {
+                  "name": "Responded",
+                  "value": "Responded"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Escalation Count",
+              "displayName": "Escalation Count",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "number",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Last Escalation Date",
+              "displayName": "Last Escalation Date",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": true,
+              "removed": false
+            },
+            {
+              "id": "Final Status",
+              "displayName": "Final Status",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "options",
+              "options": [
+                {
+                  "name": "Done",
+                  "value": "Done"
+                },
+                {
+                  "name": "Unattended",
+                  "value": "Unattended"
+                },
+                {
+                  "name": "Droped",
+                  "value": "Droped"
+                }
+              ],
+              "readOnly": false,
+              "removed": true
+            },
+            {
+              "id": "Notes",
+              "displayName": "Notes",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.1,
+      "position": [
+        1264,
+        -352
+      ],
+      "id": "1429101b-f589-4a67-9257-a16ed9a3fc5b",
+      "name": "Update Escalation Count",
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "ad311XGxj9Rkbu4m",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json.fields.Email }}",
+        "subject": "=🚨Lead Follow-up Missed: Escalated",
+        "emailType": "text",
+        "message": "=Hi Lead Team,\n\n⚠️ There is a Lead Unattended for {{ $json[\"Escalation Count\"] *12}}+ hours.\nPlease look into the following details of it, asap.\n\nName:{{ $json.fields.Name }}\nEmail:{{ $json.fields.Email }}\nCompany:{{ $json.fields.Company }}\nStatus:{{ $json.fields.Status }}\nNeed:{{ $json.fields.Need }}\nSubmission Date:{{ $json.fields['Submission Date'] }}\nTeam Response:{{ $json.fields['Team Response'] }}\n\nBest,\nAutomation Team",
+        "options": {
+          "appendAttribution": true
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1472,
+        -352
+      ],
+      "id": "fe043562-f8c6-4c08-8497-8b43766b194e",
+      "name": "EscalationMail to Team",
+      "webhookId": "4bed4bba-ef93-4a2a-8d52-9769ca443887",
+      "alwaysOutputData": false,
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "A1I7xe2dvZOoyl0I",
+          "name": "Gmail account"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "93c1f6fd-fc9d-4c4e-a136-d2835df48115",
+              "leftValue": "={{ $json[\"Team Response\"] }}",
+              "rightValue": "=Pending",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1120,
+        -128
+      ],
+      "id": "e0331e7a-32c2-44d0-bdfa-8ff4d6e8b611",
+      "name": "If Team Response is Still Pending"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Create a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create a record": {
+      "main": [
+        [
+          {
+            "node": "Mail to Team",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Mail to Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mail to Client": {
+      "main": [
+        [
+          {
+            "node": "ClientSuccessUpdates",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MailErrorUpdates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mail to Team": {
+      "main": [
+        [
+          {
+            "node": "TeamSuccessUpdates",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "MailErrorUpdates",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ClientSuccessUpdates": {
+      "main": [
+        []
+      ]
+    },
+    "TeamSuccessUpdates": {
+      "main": [
+        [
+          {
+            "node": "Wait For 12 Hours",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get a record": {
+      "main": [
+        [
+          {
+            "node": "If Team Response is Still Pending",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait For 12 Hours": {
+      "main": [
+        [
+          {
+            "node": "Get a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait For 12more Hours": {
+      "main": [
+        [
+          {
+            "node": "Get a record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Escalation Count": {
+      "main": [
+        [
+          {
+            "node": "EscalationMail to Team",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EscalationMail to Team": {
+      "main": [
+        [
+          {
+            "node": "Wait For 12more Hours",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Team Response is Still Pending": {
+      "main": [
+        [
+          {
+            "node": "Update Escalation Count",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Completed Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Kolkata",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "7ea2c34c-b6bd-43fa-ba0f-c38dc65c096b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb582b46a32158046d7dbb99cc79ecd34a088074c8287130aef68bb76f5872b9"
+  },
+  "id": "Njvopt44kMjdRoQc",
+  "tags": []
+}
