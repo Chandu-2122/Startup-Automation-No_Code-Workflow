@@ -19,7 +19,7 @@ Automate first-level startup operations (lead management, branding requests, and
 - Sends personalized email replies with next steps.
 
 3. Notifications & Updates
-- Team notified (Slack/Email) of new leads.
+- Team notified (Email) of new leads.
 - Airtable updated with response timestamps.
 
 ## Learnings
